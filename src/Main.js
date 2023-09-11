@@ -71,28 +71,28 @@ const Main = () => {
             console.log(user_time);
             if (time >= 18 || time <= 4) // night
             {
-                if (main === "Rain") setImage(<img src={rain_night} alt="night rain" width={200} height={200} />);
-                else if (main === "Snow") setImage(<img src={snow_night} alt="night snow" width={200} height={200} />);
-                else if (main === "Mist") setImage(<img src={night_mist} alt="mist night" width={200} height={200} />);
-                else setImage(<img src={night} alt="night" width={200} height={200}/>);
+                if (main === "Rain") setImage(<img src={rain_night} alt="night rain" className="images" />);
+                else if (main === "Snow") setImage(<img src={snow_night} alt="night snow" className="images" />);
+                else if (main === "Mist") setImage(<img src={night_mist} alt="mist night" className="images" />);
+                else setImage(<img src={night} alt="night" className="images"/>);
 
             }
             else // day
             {
-                if (main === "Rain") setImage(<img src={rain} alt="day rain" width={200} height={200} />);
-                else if (main === "Thunderstorm") setImage(<img src={rain_night} alt="day thunder" width={200} height={200} />);
-                else if (main === "Snow") setImage(<img src={snow} alt="day snow" width={200} height={200} />);
-                else if(main === "Mist") setImage(<img src={mist} alt="day mist" width={200} height={200} />);
+                if (main === "Rain") setImage(<img src={rain} alt="day rain" className="images" />);
+                else if (main === "Thunderstorm") setImage(<img src={rain_night} alt="day thunder" className="images" />);
+                else if (main === "Snow") setImage(<img src={snow} alt="day snow" className="images" />);
+                else if(main === "Mist") setImage(<img src={mist} alt="day mist" className="images" />);
                 else {
-                    if (temp > 30) setImage(<img src={sunny} alt="sunny" width={200} height={200} />);
-                    else setImage(<img src={cloudy} alt="clouds" width={200} height={200} />);
+                    if (temp > 30) setImage(<img src={sunny} alt="sunny" className="images" />);
+                    else setImage(<img src={cloudy} alt="clouds" className="images" />);
                 }
             }
         }
     }, [weather]);
     return (
       <div className="main">
-        <div className="input-group">
+        <div className="input-group p-2">
           <input
             type="text"
             className="search form-control text-white"
@@ -105,8 +105,8 @@ const Main = () => {
         {weather.error ? (
           <p className="fw-2 header">No such city</p>
         ) : weather.name && (
-          <div className="header p-5 w-100">
-            <div className="d-flex justify-content-between w-75 city position-relative mx-auto">
+          <div className="mx-auto p-md-4 p-2 w-100">
+            <div className="d-flex justify-content-between cards city position-relative mx-auto">
               <div>
                 <p className="fs-1 fw-semibold">{weather.name}</p>
                 <p className="mt-3 position-absolute bottom-0 fs-1 fw-semibold">
@@ -114,9 +114,11 @@ const Main = () => {
                   {weather.temperature && <sup>o</sup>}
                 </p>
               </div>
-              {image}
+              <div className="h-100 d-flex align-items-center">
+                  {image}
+              </div>
             </div>
-            <div className="accordion w-75 mx-auto mt-4">
+            <div className="accordion cards mx-auto mt-4">
               <div className="accordion-item">
                 <h2 className="accordion-header" >
                   <button
@@ -141,7 +143,7 @@ const Main = () => {
             </div>
             
             
-            <div className="accordion w-75 mx-auto mt-4">
+            <div className="accordion cards mx-auto mt-4">
               <div className="accordion-item">
                 <h2 className="accordion-header" >
                   <button
@@ -156,7 +158,7 @@ const Main = () => {
                 </h2>
                 <div id="wind" className="accordion-collapse collapse">
                   <div className="info" style={{backgroundColor: 'rgb(32, 43, 59)'}}>
-                      {weather.speed && <p className="fs-5 accordion-body">speed: {weather.speed} m/s</p>}
+                      {weather.speed && <p className="fs-5 accordion-body"><img src={wind} alt="" className="img-fluid" height={30} width={30} /> speed: {weather.speed} m/s</p>}
                       {weather.deg && <p className="fs-5 accordion-body">direction: <img src={direction} alt="" className="img-fluid" style={{ rotate: String(weather.deg - 180) + "deg" }} height={25} width={25} /></p>}
                   </div>
                 </div>
@@ -164,7 +166,7 @@ const Main = () => {
             </div>
             
             
-            <div className="accordion w-75 mx-auto mt-4">
+            <div className="accordion cards mx-auto mt-4">
               <div className="accordion-item">
                 <h2 className="accordion-header" >
                   <button
