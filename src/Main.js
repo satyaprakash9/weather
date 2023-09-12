@@ -159,7 +159,7 @@ const Main = () => {
                 <div id="wind" className="accordion-collapse collapse">
                   <div className="info" style={{backgroundColor: 'rgb(32, 43, 59)'}}>
                       {weather.speed && <p className="fs-5 accordion-body"><img src={wind} alt="" className="img-fluid" height={30} width={30} /> speed: {weather.speed} m/s</p>}
-                      {weather.deg && <p className="fs-5 accordion-body">direction: <img src={direction} alt="" className="img-fluid" style={{ rotate: String(weather.deg - 180) + "deg" }} height={25} width={25} /></p>}
+                      <p className="fs-5 accordion-body">direction: <img src={direction} alt="direction" className="img-fluid" style={{ rotate: weather.deg - 180 + "deg" }} height={25} width={25} /></p>
                   </div>
                 </div>
               </div>
