@@ -1,0 +1,71 @@
+*{
+    @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+    color:aliceblue;
+}
+body{
+    background-color: rgb(11, 19, 30);
+    font-family: 'Varela Round', sans-serif;
+    color: aliceblue;
+}
+.main input, .main button{
+    border: none;
+    background-color: rgb(32, 43, 59);
+}
+.search{
+    color: aliceblue;
+    width: 100%;
+}
+.main{
+    margin: 5vh 10vw;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+.search::placeholder{
+    color:aliceblue;
+}
+.search:focus{
+    background-color: rgb(32, 43, 59);
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.city{
+    height: 200px;
+}
+.info{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+}
+.cards{
+    width: 75%;
+}
+.images{
+    height: 200px;
+    width: 200px;
+}
+@media screen and (max-width: 1080px) {
+    .info{
+        grid-template-columns: auto;
+        justify-content: start;
+    }
+}
+@media screen and (max-width: 600px) {
+    .main{
+        width: 100vw;
+        margin: 5vh 2vw;
+    }
+    .cards{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .images{
+        height: 150px;
+        width: 150px;
+    }
+}
